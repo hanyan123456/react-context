@@ -1,34 +1,24 @@
 import React, {Component} from 'react';
-
-
+import Header from './component/header'
+import Body from './component/body'
+import TopMenu from '../components/topMenu'
+import { Provider } from '../context'
 
 class Home extends Component{
     state={
-        userValue:'',
-        passwordValue:'',
+        childData:'父亲'
     }
-    getUser=(e)=>{
-        this.setState({
-            userValue:e.target.value,
-        })
-    }
-    getPassword=(e)=>{
-        this.setState({
-            passwordValue:e.target.value,
-        })
-    }
-    handPost=()=>{
-        const { userValue, passwordValue }=this.state;
-        console.log(userValue)
-        console.log(passwordValue)
-    }
+   
     render(){
+        const { childData } = this.state;
         return(
-          <div>
-             <label>名字</label> <input placeholder='' onChange={this.getUser}/>
-             <label>密码</label> <input placeholder='' onChange={this.getPassword}/>
-             <button onClick={this.handPost}>提交</button>
-          </div>
+            <Provider value={ childData }>
+                <div>
+                    <Header></Header>
+                    <Body Data={childData}></Body>
+                    <TopMenu Data={childData}></TopMenu>
+                </div>
+             </Provider>
         );
     }
 }
