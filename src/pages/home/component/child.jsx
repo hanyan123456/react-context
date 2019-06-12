@@ -9,6 +9,7 @@ const child = () => {
              <div>
                     <span>我是子组件的子组件{childData}</span>
                  
+                    <span>Hello, I'm hanyan,hahha</span>
              </div>
             }
         </Consumer>
